@@ -15,8 +15,8 @@ func init() {
 }
 
 func main() {
-	http.HandleFunc("/a", HelloVeigar)
-	log.Debug("wubingwei server is starting ================>")
+	http.HandleFunc("/", HelloVeigar)
+	log.Debug("veigar is dancing ================>")
 	err := http.ListenAndServe(":1994", nil)
 	if err != nil {
 		log.Fatal("Listen and serve", err.Error())
