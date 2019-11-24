@@ -1,0 +1,7 @@
+# mysql
+mysql:
+  host: mysql
+  port: port
+  user: user
+  password: password
+  database: veigar

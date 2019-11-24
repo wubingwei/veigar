@@ -1,0 +1,11 @@
+# 本地使用文件
+veigar.local.yml
+# IDE
+.idea
+# 依赖
+vendor
+# 构建产出
+veigar
+# 日志
+*.log
+
