@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	log "github.com/logrus"
+	log "github.com/sirupsen/logrus"
 	"github.com/wubingwei/veigar/config"
 	"net/http"
 	"strings"

@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"go/build"
 	"os"
