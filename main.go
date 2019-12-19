@@ -1,11 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 	"github.com/wubingwei/veigar/config"
-	"net/http"
-	"strings"
+	"github.com/wubingwei/veigar/handler"
 )
 
 func init() {
@@ -15,19 +14,10 @@ func init() {
 }
 
 func main() {
-	http.HandleFunc("/", HelloVeigar)
-	log.Debug("veigar is dancing ================>")
-	err := http.ListenAndServe(":1994", nil)
+	router := gin.Default()
+	handler.InitRouter(router)
+	err := router.Run(":1994")
 	if err != nil {
-		log.Fatal("Listen and serve", err.Error())
+		log.Fatal(err)
 	}
-}
-
-func HelloVeigar(w http.ResponseWriter, r *http.Request) {
-	_ = r.ParseForm()
-	for k, v := range r.Form {
-		fmt.Println("Key: ", k)
-		fmt.Println("Value: ", strings.Join(v, " "))
-	}
-	fmt.Fprintf(w, "Hello verigar")
 }

@@ -2,9 +2,9 @@ package dbmodel
 
 type (
 	Administrator struct {
-		ID    int    `gorm:"id"`
-		Name  string `gorm:"name"`
-		Email string `gorm:"email"`
+		ID    int    `json:"id" gorm:"id"`
+		Name  string `json:"name"`
+		Email string `json:"email"`
 	}
 
 	AdministratorStore interface {

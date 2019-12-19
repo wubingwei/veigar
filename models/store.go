@@ -1,4 +1,4 @@
-package databases
+package models
 
 import (
 	"fmt"
@@ -6,12 +6,17 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/sirupsen/logrus"
 	"github.com/wubingwei/veigar/config"
+	"github.com/wubingwei/veigar/dbmodel"
 )
 
-var store *gorm.DB
+var (
+	store              *gorm.DB
+	AdministratorStore dbmodel.AdministratorStore
+)
 
 func init() {
 	store = NewStore(&config.Mysql)
+	AdministratorStore = &administrator{}
 }
 
 func NewStore(DB *config.MysqlDB) *gorm.DB {

@@ -3,7 +3,6 @@ package models
 import (
 	"errors"
 	"github.com/jinzhu/gorm"
-	. "github.com/wubingwei/veigar/databases"
 	"github.com/wubingwei/veigar/dbmodel"
 )
 
@@ -19,7 +18,7 @@ func (a *administrator) UpdateEmail(id int, email string) error {
 
 func (a *administrator) Find(id int) (*dbmodel.Administrator, error) {
 	admin := new(dbmodel.Administrator)
-	err := GetDB().First(admin, id).Error
+	err := GetDB().Table("administrator").Where("id = ?", id).First(admin).Error
 	if err != nil {
 		if gorm.IsRecordNotFoundError(err) {
 			return nil, errors.New("cannot find this administrator, please make sure it created")
