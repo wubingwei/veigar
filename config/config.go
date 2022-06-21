@@ -60,7 +60,6 @@ func init() {
 
 	conf.SetDefault("PROJECT", "veigar")
 	conf.SetDefault("CODER", "wubingwei")
-	conf.SetDefault("LOVER", "sunya")
 
 	Mysql.Host = conf.GetString("mysql.host")
 	Mysql.Port = conf.GetInt("mysql.port")
